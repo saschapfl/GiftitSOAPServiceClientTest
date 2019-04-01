@@ -163,22 +163,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Task }
-     * 
-     */
-    public Task createTask() {
-        return new Task();
-    }
-
-    /**
-     * Create an instance of {@link Category }
-     * 
-     */
-    public Category createCategory() {
-        return new Category();
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link FindByUsername }{@code >}
      * 
      * @param value

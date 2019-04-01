@@ -47,7 +47,7 @@ public class Main {
             System.out.println("Ungültige Benutzerdaten!");
         }
 
-        List<GiftGiftit> filteredGifts = giftWs.findByUsername("viktoria", "viktoria");
+        List<GiftGiftit> filteredGifts = giftWs.findByUsername("viktoria", "viktoria", "viktoria");
         System.out.println("========================");
         System.out.println("Viktorias Geschenke");
         System.out.println("========================");

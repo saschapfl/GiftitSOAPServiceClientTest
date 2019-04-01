@@ -20,8 +20,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="forname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="gifts" type="{http://soap.giftit.javaee.vertsys.wwi.dhbwka/}giftGiftit" maxOccurs="unbounded" minOccurs="0"/&gt;
  *         &lt;element name="lastname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="tasks" type="{http://soap.giftit.javaee.vertsys.wwi.dhbwka/}task" maxOccurs="unbounded" minOccurs="0"/&gt;
  *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -34,16 +34,16 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "user", propOrder = {
     "forname",
+    "gifts",
     "lastname",
-    "tasks",
     "username"
 })
 public class User {
 
     protected String forname;
-    protected String lastname;
     @XmlElement(nillable = true)
-    protected List<Task> tasks;
+    protected List<GiftGiftit> gifts;
+    protected String lastname;
     protected String username;
 
     /**
@@ -71,6 +71,35 @@ public class User {
     }
 
     /**
+     * Gets the value of the gifts property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the gifts property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getGifts().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link GiftGiftit }
+     * 
+     * 
+     */
+    public List<GiftGiftit> getGifts() {
+        if (gifts == null) {
+            gifts = new ArrayList<GiftGiftit>();
+        }
+        return this.gifts;
+    }
+
+    /**
      * Ruft den Wert der lastname-Eigenschaft ab.
      * 
      * @return
@@ -92,35 +121,6 @@ public class User {
      */
     public void setLastname(String value) {
         this.lastname = value;
-    }
-
-    /**
-     * Gets the value of the tasks property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the tasks property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getTasks().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Task }
-     * 
-     * 
-     */
-    public List<Task> getTasks() {
-        if (tasks == null) {
-            tasks = new ArrayList<Task>();
-        }
-        return this.tasks;
     }
 
     /**
