@@ -30,6 +30,10 @@ public class ObjectFactory {
     private final static QName _FindallgiftsResponse_QNAME = new QName("http://soap.giftit.javaee.vertsys.wwi.dhbwka/", "findallgiftsResponse");
     private final static QName _Search_QNAME = new QName("http://soap.giftit.javaee.vertsys.wwi.dhbwka/", "search");
     private final static QName _SearchResponse_QNAME = new QName("http://soap.giftit.javaee.vertsys.wwi.dhbwka/", "searchResponse");
+    private final static QName _Signup_QNAME = new QName("http://soap.giftit.javaee.vertsys.wwi.dhbwka/", "signup");
+    private final static QName _SignupResponse_QNAME = new QName("http://soap.giftit.javaee.vertsys.wwi.dhbwka/", "signupResponse");
+    private final static QName _InvalidCredentialsException_QNAME = new QName("http://soap.giftit.javaee.vertsys.wwi.dhbwka/", "InvalidCredentialsException");
+    private final static QName _UserAlreadyExistsException_QNAME = new QName("http://soap.giftit.javaee.vertsys.wwi.dhbwka/", "UserAlreadyExistsException");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: dhbwka.wwi.vertsys.javaee.giftit.soap
@@ -84,6 +88,38 @@ public class ObjectFactory {
      */
     public SearchResponse createSearchResponse() {
         return new SearchResponse();
+    }
+
+    /**
+     * Create an instance of {@link Signup }
+     * 
+     */
+    public Signup createSignup() {
+        return new Signup();
+    }
+
+    /**
+     * Create an instance of {@link SignupResponse }
+     * 
+     */
+    public SignupResponse createSignupResponse() {
+        return new SignupResponse();
+    }
+
+    /**
+     * Create an instance of {@link InvalidCredentialsException }
+     * 
+     */
+    public InvalidCredentialsException createInvalidCredentialsException() {
+        return new InvalidCredentialsException();
+    }
+
+    /**
+     * Create an instance of {@link UserAlreadyExistsException }
+     * 
+     */
+    public UserAlreadyExistsException createUserAlreadyExistsException() {
+        return new UserAlreadyExistsException();
     }
 
     /**
@@ -218,6 +254,58 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://soap.giftit.javaee.vertsys.wwi.dhbwka/", name = "searchResponse")
     public JAXBElement<SearchResponse> createSearchResponse(SearchResponse value) {
         return new JAXBElement<SearchResponse>(_SearchResponse_QNAME, SearchResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Signup }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Signup }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.giftit.javaee.vertsys.wwi.dhbwka/", name = "signup")
+    public JAXBElement<Signup> createSignup(Signup value) {
+        return new JAXBElement<Signup>(_Signup_QNAME, Signup.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SignupResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SignupResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.giftit.javaee.vertsys.wwi.dhbwka/", name = "signupResponse")
+    public JAXBElement<SignupResponse> createSignupResponse(SignupResponse value) {
+        return new JAXBElement<SignupResponse>(_SignupResponse_QNAME, SignupResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidCredentialsException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvalidCredentialsException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.giftit.javaee.vertsys.wwi.dhbwka/", name = "InvalidCredentialsException")
+    public JAXBElement<InvalidCredentialsException> createInvalidCredentialsException(InvalidCredentialsException value) {
+        return new JAXBElement<InvalidCredentialsException>(_InvalidCredentialsException_QNAME, InvalidCredentialsException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UserAlreadyExistsException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UserAlreadyExistsException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.giftit.javaee.vertsys.wwi.dhbwka/", name = "UserAlreadyExistsException")
+    public JAXBElement<UserAlreadyExistsException> createUserAlreadyExistsException(UserAlreadyExistsException value) {
+        return new JAXBElement<UserAlreadyExistsException>(_UserAlreadyExistsException_QNAME, UserAlreadyExistsException.class, null, value);
     }
 
 }

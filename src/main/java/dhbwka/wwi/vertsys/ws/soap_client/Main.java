@@ -14,6 +14,7 @@ import dhbwka.wwi.vertsys.javaee.giftit.soap.GiftStatus;
 import dhbwka.wwi.vertsys.javaee.giftit.soap.GiftGiftit;
 import dhbwka.wwi.vertsys.javaee.giftit.soap.CategoryGiftit;
 import dhbwka.wwi.vertsys.javaee.giftit.soap.GiftItService;
+import dhbwka.wwi.vertsys.javaee.giftit.soap.InvalidCredentialsException_Exception;
 import java.util.List;
 
 /**
@@ -22,28 +23,31 @@ import java.util.List;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidCredentialsException_Exception {
         // Stub-Objekt zum entfernten Aufruf erstellen
         GiftItService service = new GiftItService();
         GiftIt giftWs = service.getGiftItPort();
 
         // Webservice-Operation "findAll" aufrufen
-        List<GiftGiftit> allGifts = giftWs.findallgifts();
-
-        // Abgerufenes Ergebnis anzeigen
-        System.out.println("========================");
-        System.out.println("Die große SOAP-Geschenkideenliste");
-        System.out.println("========================");
-        System.out.println();
-
-        for (GiftGiftit gift : allGifts) {
-            System.out.println("Text:         " + gift.getLongText());
-            System.out.println("Kategorie: " + gift.getCategory());
-            System.out.println("Ersteller:         " + gift.getOwner());
+        try {
+            List<GiftGiftit> allGifts = giftWs.findallgifts("viktoria", "viktoria");
+            // Abgerufenes Ergebnis anzeigen
+            System.out.println("========================");
+            System.out.println("Die große SOAP-Geschenkideenliste");
+            System.out.println("========================");
             System.out.println();
+
+            for (GiftGiftit gift : allGifts) {
+                System.out.println("Text:         " + gift.getLongText());
+                System.out.println("Kategorie: " + gift.getCategory());
+                System.out.println("Ersteller:         " + gift.getOwner());
+                System.out.println();
+            }
+        } catch (InvalidCredentialsException_Exception ice) {
+            System.out.println("Ungültige Benutzerdaten!");
         }
 
-        List<GiftGiftit> filteredGifts = giftWs.findByUsername("viktoria");
+        List<GiftGiftit> filteredGifts = giftWs.findByUsername("viktoria", "viktoria");
         System.out.println("========================");
         System.out.println("Viktorias Geschenke");
         System.out.println("========================");

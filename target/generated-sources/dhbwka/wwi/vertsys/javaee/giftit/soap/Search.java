@@ -17,6 +17,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
+ *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="search" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="category" type="{http://soap.giftit.javaee.vertsys.wwi.dhbwka/}categoryGiftit" minOccurs="0"/&gt;
  *         &lt;element name="status" type="{http://soap.giftit.javaee.vertsys.wwi.dhbwka/}giftStatus" minOccurs="0"/&gt;
@@ -30,16 +32,68 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "search", propOrder = {
+    "username",
+    "password",
     "search",
     "category",
     "status"
 })
 public class Search {
 
+    protected String username;
+    protected String password;
     protected String search;
     protected CategoryGiftit category;
     @XmlSchemaType(name = "string")
     protected GiftStatus status;
+
+    /**
+     * Ruft den Wert der username-Eigenschaft ab.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * Legt den Wert der username-Eigenschaft fest.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUsername(String value) {
+        this.username = value;
+    }
+
+    /**
+     * Ruft den Wert der password-Eigenschaft ab.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Legt den Wert der password-Eigenschaft fest.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPassword(String value) {
+        this.password = value;
+    }
 
     /**
      * Ruft den Wert der search-Eigenschaft ab.
