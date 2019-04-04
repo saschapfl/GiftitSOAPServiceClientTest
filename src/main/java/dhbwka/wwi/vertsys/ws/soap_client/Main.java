@@ -35,7 +35,7 @@ public class Main {
         GiftIt giftWs = service.getGiftItPort();
 
         // Benutzerdaten einlesen
-        System.out.print("Registrierungsdaten:");
+        System.out.println("Registrierungsdaten:");
         System.out.print("Vorname: ");
         String firstName = in.readLine();
         System.out.print("Nachname: ");
@@ -66,12 +66,12 @@ public class Main {
                     System.out.println();
                 }
 
-                System.out.print("Zu welchem User möchten Sie Geschenke sehen?");
+                System.out.print("Zu welchem User möchten Sie Geschenke sehen? ");
                 String userToSearch = in.readLine();
 
                 List<GiftGiftit> filteredGifts = giftWs.findByUsername(userName, password, userToSearch);
                 System.out.println("========================");
-                System.out.println("Viktorias Geschenke");
+                System.out.println(userName + "Geschenke");
                 System.out.println("========================");
                 System.out.println();
 
