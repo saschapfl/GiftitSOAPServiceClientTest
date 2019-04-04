@@ -35,17 +35,17 @@ public class Main {
         GiftIt giftWs = service.getGiftItPort();
 
         // Benutzerdaten einlesen
-        System.out.println("Registrierungsdaten:");
-        System.out.println("Vorname: ");
+        System.out.print("Registrierungsdaten:");
+        System.out.print("Vorname: ");
         String firstName = in.readLine();
-        System.out.println("Nachname: ");
+        System.out.print("Nachname: ");
         String lastName = in.readLine();
-        System.out.println("Benutzername: ");
+        System.out.print("Benutzername: ");
         String userName = in.readLine();
-        System.out.println("Passwort: ");
+        System.out.print("Passwort: ");
         String password = in.readLine();
 
-        try{
+        try {
             String status = giftWs.signup(userName, password, firstName, lastName);
 
             //Wenn status OK --> go!
@@ -60,9 +60,9 @@ public class Main {
                 System.out.println();
 
                 for (GiftGiftit gift : allGifts) {
-                    System.out.println("Text:         " + gift.getLongText());
+                    System.out.println("Text: " + gift.getLongText());
                     System.out.println("Kategorie: " + gift.getCategory());
-                    System.out.println("Ersteller:         " + gift.getOwner());
+                    System.out.println("Ersteller: " + gift.getOwner());
                     System.out.println();
                 }
 
@@ -76,9 +76,9 @@ public class Main {
                 System.out.println();
 
                 for (GiftGiftit gift : filteredGifts) {
-                    System.out.println("Text:         " + gift.getLongText());
+                    System.out.println("Text: " + gift.getLongText());
                     System.out.println("Kategorie: " + gift.getCategory());
-                    System.out.println("Ersteller:         " + gift.getOwner());
+                    System.out.println("Ersteller: " + gift.getOwner());
                     System.out.println();
                 }
 
@@ -88,26 +88,24 @@ public class Main {
                 String status_gift = in.readLine();
                 System.out.print("Suchbegriff: ");
                 String search = in.readLine();
-                
-                if(status_gift.equals("IDEA") || status_gift.equals("IN_ORDER") || status_gift.equals("CANCELED") || status_gift.equals("DELIVERD")){
-                    
-                
-                GiftStatus giftstatus = GiftStatus.valueOf(status_gift);
-                
-                List<GiftGiftit> find = giftWs.search(userName, password, search, category, giftstatus);
-                System.out.println("========================");
-                System.out.println("Geschenk");
-                System.out.println("========================");
-                System.out.println();
 
-                for (GiftGiftit gift : find) {
-                    System.out.println("Text:         " + gift.getLongText());
-                    System.out.println("Kategorie: " + gift.getCategory());
-                    System.out.println("Ersteller:         " + gift.getOwner());
+                if (status_gift.equals("IDEA") || status_gift.equals("IN_ORDER") || status_gift.equals("CANCELED") || status_gift.equals("DELIVERD")) {
+
+                    GiftStatus giftstatus = GiftStatus.valueOf(status_gift);
+
+                    List<GiftGiftit> find = giftWs.search(userName, password, search, category, giftstatus);
+                    System.out.println("========================");
+                    System.out.println("Geschenk");
+                    System.out.println("========================");
                     System.out.println();
+
+                    for (GiftGiftit gift : find) {
+                        System.out.println("Text: " + gift.getLongText());
+                        System.out.println("Kategorie: " + gift.getCategory());
+                        System.out.println("Ersteller: " + gift.getOwner());
+                        System.out.println();
                     }
-                }
-                else{
+                } else {
                     throw new Exception();
                 }
             }
@@ -117,12 +115,9 @@ public class Main {
             System.out.println("Der Username ist bereits vorhanden");
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage().getClass());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Dieser Status existiert nicht");
         }
-        
-        
-        
+
     }
 }
