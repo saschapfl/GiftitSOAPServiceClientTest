@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="search" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="category" type="{http://soap.giftit.javaee.vertsys.wwi.dhbwka/}categoryGiftit" minOccurs="0"/&gt;
+ *         &lt;element name="category" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="status" type="{http://soap.giftit.javaee.vertsys.wwi.dhbwka/}giftStatus" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -43,7 +43,7 @@ public class Search {
     protected String username;
     protected String password;
     protected String search;
-    protected CategoryGiftit category;
+    protected String category;
     @XmlSchemaType(name = "string")
     protected GiftStatus status;
 
@@ -124,10 +124,10 @@ public class Search {
      * 
      * @return
      *     possible object is
-     *     {@link CategoryGiftit }
+     *     {@link String }
      *     
      */
-    public CategoryGiftit getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -136,10 +136,10 @@ public class Search {
      * 
      * @param value
      *     allowed object is
-     *     {@link CategoryGiftit }
+     *     {@link String }
      *     
      */
-    public void setCategory(CategoryGiftit value) {
+    public void setCategory(String value) {
         this.category = value;
     }
 
