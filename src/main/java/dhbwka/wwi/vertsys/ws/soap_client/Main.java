@@ -102,10 +102,15 @@ public class Main {
                     System.out.println("Gefiltertes Geschenk");
                     System.out.println("========================");
                     System.out.println();
+                    for (GiftGiftit gift : find) {
+                        System.out.println("Name:         " + gift.getShortText());
+                        System.out.println("Kategorie: " + gift.getCategory());
+                        System.out.println("Ersteller:         " + gift.getOwner().getForname() + " " + gift.getOwner().getLastname() + " | alias: " + gift.getOwner().getUsername());
+                        System.out.println();
                     }
-                } else {
-                    throw new StatusNotValidException();
                 }
+            } else {
+                throw new StatusNotValidException();
             }
         } catch (InvalidCredentialsException_Exception ice) {
             System.out.println("Ungültige Benutzerdaten!");
